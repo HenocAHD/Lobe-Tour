@@ -1,0 +1,53 @@
+<button class="hamburger">
+  <div></div>
+  <div></div>
+  <div></div>
+</button>
+
+<style>
+      .hamburger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border: 0;
+    background: transparent;
+    gap: 0.2rem;
+    background-color: var(--gray-light);
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+  }
+  .hamburger > div {
+    background-color: black;
+    height: 2px;
+    width: 60%;
+    border: 4px;
+    transition: all 0.5s;
+    transform-origin: left;
+  }
+  .is-active div:first-child {
+    transform: translate(3px) rotate(45deg);
+  }
+  .is-active div:nth-child(2) {
+    opacity: 0;
+  }
+  .is-active div:last-child {
+    transform:translate(3px, 2.5px)  rotate(-45deg);
+  }
+
+  @media screen and (max-width: 900px){
+    .hamburger{
+        display: flex;
+    }
+  }
+</style>
+<script>
+  const $hamburger = document.querySelector(".hamburger");
+
+  $hamburger.addEventListener("click", () => {
+    $hamburger.classList.toggle("is-active");
+  });
+</script>
